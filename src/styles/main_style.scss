@@ -1,0 +1,14 @@
+input[type="text"]{
+
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 1.25rem;
+  margin: 1rem 0.25rem 1rem 0;
+  padding: 0.25rem 0.5rem;
+  width: 380px;
+
+  &:disabled {
+    background: #eee;
+  }
+
+}

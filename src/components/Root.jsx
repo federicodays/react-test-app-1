@@ -7,46 +7,47 @@ class Root extends React.Component {
 
   constructor() {
     super();
-    this.updateErrorText = this.updateErrorText.bind(this);
+    this.updateErrorMessage = this.updateErrorMessage.bind(this);
     this.openPopup = this.openPopup.bind(this);
     this.closePopup = this.closePopup.bind(this);
-    this.state = {errorText: '', errorPopupIsActive: false};
+
+    this.state = {errorMessage: '', popupIsDisplayed: false};
   }
 
-  updateErrorText(text) {
-    this.setState({errorText: text});
+  updateErrorMessage(message) {
+    this.setState({errorMessage: message});
+  }
+
+  errorMessageIsPresent(message){
+    return message ? true : false;
   }
 
   openPopup() {
-   this.setState({errorPopupIsActive: true});
+    this.setState({popupIsDisplayed: true});
   }
 
   closePopup() {
-    this.setState({errorPopupIsActive: false});
-  }
-
-  errorTextIsPresent(msg){
-    return msg ? true : false;
+    this.setState({popupIsDisplayed: false});
   }
 
   render() {
-    const errorText = this.state.errorText;
-    const showPopup = this.state.errorPopupIsActive;
+    const errorMessage = this.state.errorMessage;
+    const showPopup = this.state.popupIsDisplayed;
+
     let popup;
 
     if (showPopup === true) {
-      popup = <ErrorPopup onClosePopup={this.closePopup} errorMessage={errorText} />;
+      popup = <ErrorPopup closePopup={this.closePopup} errorMessage={errorMessage} />;
     }
 
     return(
       <div>
-        <ErrorMessageInput onErrorTextChange={this.updateErrorText} showPopupStatus={showPopup} />
-        <button onClick={this.openPopup} disabled={!this.errorTextIsPresent(errorText)}>Show error popuop </button>
+        <ErrorMessageInput updateErrorMessage={this.updateErrorMessage} showPopup={showPopup} />
+        <button onClick={this.openPopup} disabled={!this.errorMessageIsPresent(errorMessage)}>Show error popuop</button>
         <div>{popup}</div>
       </div>
     );
   }
-
 }
 
 export default Root;

@@ -5,7 +5,7 @@ const ErrorPopup = (props) => {
     <div className="error-popup">
       <div className="error-popup__error-message">{props.errorMessage}</div>
       <div className="error-popup__footer">
-        <a href="http://www.federicogiorni.com" onClick={(e) => {e.preventDefault(); (props.onClosePopup())}}>Close(x)</a>
+        <a href="http://www.federicogiorni.com" onClick={(e) => {e.preventDefault(); (props.closePopup())}}>Close (x)</a>
       </div>
     </div>
   );

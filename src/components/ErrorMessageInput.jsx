@@ -1,28 +1,16 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 
-class ErrorMessageInput extends React.Component {
-  constructor(props){
-    super(props);
-  }
+const ErrorMessageInput = props => {
 
-  handleChange(e) {
-    this.props.onErrorTextChange(e.target.value);
-  }
+  // if popup is shown, input will be disabled.
+  const inputDisabled = props.showPopup;
 
-  render() {
-
-    // if popup is shown, the input will be disabled
-    const inputIsDisable = this.props.showPopupStatus;
-
-    return(
-      <div>
-        <h1>Type a custom message error and test it:</h1>
-        <input disabled={inputIsDisable} type="text" onChange={(e) => this.handleChange(e)} />
-      </div>
-    );
-  }
-
+  return(
+    <div>
+      <h1>Type a custom error message:</h1>
+      <input type="text" onChange={(e) => props.updateErrorMessage(e.target.value)} disabled={inputDisabled} />
+    </div>
+  );
 };
 
 export default ErrorMessageInput;

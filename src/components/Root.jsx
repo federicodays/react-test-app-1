@@ -43,7 +43,7 @@ class Root extends React.Component {
     return(
       <div>
         <ErrorMessageInput updateErrorMessage={this.updateErrorMessage} showPopup={showPopup} />
-        <button onClick={this.openPopup} disabled={!this.errorMessageIsPresent(errorMessage)}>Show error popuop</button>
+        <button onClick={this.openPopup} disabled={!this.errorMessageIsPresent(errorMessage)}>Show error popup</button>
         <div>{popup}</div>
       </div>
     );

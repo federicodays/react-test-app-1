@@ -17,6 +17,8 @@ class Root extends React.Component<Props, State> {
   constructor() {
     super();
 
+    // https://github.com/facebook/flow/issues/5874
+
     // Workaround for flow error: Cannot assign this.updateErrorMessage.bind(...) to this.updateErrorMessage because property updateErrorMessage is not
     // writable.
 

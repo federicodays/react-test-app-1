@@ -1,6 +1,8 @@
+// @flow
+
 // react modules
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 
 // root component
 import Root from "./components/Root";
@@ -12,4 +14,7 @@ function importAllFromDir (r) {
 // styles
 importAllFromDir(require.context('./styles/', true, /\.scss$/));
 
-ReactDOM.render(<Root />, document.getElementById('root'));
+const root =  document.getElementById('root');
+if (root !== null) {
+  ReactDOM.render(<Root />, root)
+}

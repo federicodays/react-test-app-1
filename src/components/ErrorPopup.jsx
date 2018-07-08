@@ -1,6 +1,13 @@
-import React from "react";
+// @flow
 
-const ErrorPopup = (props) => {
+import * as React from "react";
+
+type Props = {
+  closePopup: (void) => void,
+  errorMessage: string
+};
+
+const ErrorPopup = (props: Props) => {
   return (
     <div className="error-popup">
       <div className="error-popup__error-message">{props.errorMessage}</div>

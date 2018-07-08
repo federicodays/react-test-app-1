@@ -1,6 +1,13 @@
-import React from "react";
+// @flow
 
-const ErrorMessageInput = props => {
+import * as React from "react";
+
+type Props = {
+  showPopup: boolean,
+  updateErrorMessage: (string) => void,
+};
+
+const ErrorMessageInput = (props: Props) => {
 
   // if popup is shown, input will be disabled.
   const inputDisabled = props.showPopup;
